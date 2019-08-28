@@ -302,4 +302,8 @@ nav h1 a {
     z-index: 0;
   }
 
+  #restaurant-container {
+    margin-top: 540px;
+  }
+
 }
