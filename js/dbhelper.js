@@ -162,7 +162,7 @@ class DBHelper {
     const myIcon = L.icon({
       iconUrl: 'img/map-marker2.png',
       iconSize: [30, 45],
-      iconAnchor: [15, 42]
+      iconAnchor: [15, 40]
     });
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng], {
       title: restaurant.name,
