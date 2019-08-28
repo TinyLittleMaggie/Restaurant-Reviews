@@ -155,27 +155,23 @@ class DBHelper {
 
   /**
    * Map marker for a restaurant.
+   * Documentation: https: //leafletjs.com/reference-1.3.0.html#marker
    */
-   static mapMarkerForRestaurant(restaurant, map) {
-    // https://leafletjs.com/reference-1.3.0.html#marker  
-    const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng],
-      {title: restaurant.name,
-      alt: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant)
-      })
-      marker.addTo(newMap);
-    return marker;
-  } 
-  /* static mapMarkerForRestaurant(restaurant, map) {
-    const marker = new google.maps.Marker({
-      position: restaurant.latlng,
+  static mapMarkerForRestaurant(restaurant, map) {
+
+    const myIcon = L.icon({
+      iconUrl: 'img/map-marker2.png',
+      iconSize: [30, 45],
+      iconAnchor: [15, 42]
+    });
+    const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng], {
       title: restaurant.name,
+      alt: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant),
-      map: map,
-      animation: google.maps.Animation.DROP}
-    );
+      icon: myIcon
+    });
+    marker.addTo(newMap);
     return marker;
-  } */
+  }
 
 }
-
