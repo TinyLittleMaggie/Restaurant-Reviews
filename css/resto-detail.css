@@ -1,5 +1,9 @@
 /* ====================== General Styling ====================== */
 
+* {
+  box-sizing: border-box;
+}
+
 body, td, th, p {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
@@ -49,9 +53,14 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 
+/* ====================== Header / Navigation ====================== */
 
-
-/* ====================== Navigation ====================== */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
 nav {
   width: 100%;
@@ -112,39 +121,35 @@ nav h1 a {
 
 .left-panel {
 	width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
-.inside header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.inside #small-nav {
+#small-nav {
 	margin-top: 70px;
 	position: fixed;
 	z-index: 1000;
 	width: 50%;
 }
 
-.inside #map-container {
+#map-container {
   background: #FFF none repeat scroll 0 0;
   height: 89.5%;
   position: fixed;
   right: 0;
   top: 70px;
   width: 50%;
-	/* visibility: hidden; */
 }
 
-.inside #map {
+#map {
   background-color: #CCC;
   height: 100%;
   width: 100%;
 }
 
-.inside #footer {
+#footer {
   bottom: 0;
   position: absolute;
   width: 50%;
@@ -155,42 +160,39 @@ nav h1 a {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
-  letter-spacing: 0;
-  margin: 15px 0 30px;
   line-height: 1.1;
 }
 
 #restaurant-img {
-  width: 90%;
+  width: 100%;
+  border-radius: 8px;
 }
 
 #restaurant-address {
   font-size: 1rem;
-  margin: 10px 0px;
+  margin: 10px 0px 25px;
 }
 
 #restaurant-cuisine {
   background-color: #FFD7DB;
   color: #E34750;
   font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 5px;
-  margin: 0 0 20px;
-  padding: 2px 0;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 8px;
   text-align: center;
   text-transform: uppercase;
-  width: 90%;
 }
 
-#restaurant-container, #reviews-container {
+#restaurant-container {
+  padding: 160px 0 30px;
   border-bottom: 1px solid #CCC;
-  border-top: 1px solid #FFF;
-  padding: 70px 40px 30px;
-  width: 50%;
+  width: 85%;
 }
 
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 30px 0 80px;
+  width: 85%;
 }
 
 #reviews-container h2 {
