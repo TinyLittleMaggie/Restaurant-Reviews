@@ -48,10 +48,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 
-.content-container {
-	width: 80%;
-	max-width: 1000px;
-}
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -124,6 +120,10 @@ nav h1 a {
 	align-content: center;
 	justify-content: center;
 }
+.filter-options .container {
+	width: 80%;
+	max-width: 1000px;
+}
 .filter-options h2 {
   color: #333333;
   font-size: 1.2em;
@@ -150,11 +150,16 @@ nav h1 a {
 	align-content: center;
 	justify-content: center;
 }
+.filter-results .container {
+	width: 80%;
+	max-width: 1000px;
+	padding: 30px 0;
+}
 #restaurants-list {
   background-color: #fff;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 0;
+  padding: 0;
 	display: flex;
 	flex-wrap: wrap;
 	align-content: center;
@@ -162,7 +167,7 @@ nav h1 a {
 }
 #restaurants-list li {
   background-color: #fff;
-  border: 1px solid #ccc;
+	border: 1px solid #ccc;
 	border-radius: 10px;
   font-family: 'Montserrat', sans-serif;
   margin: 15px;
