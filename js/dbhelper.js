@@ -154,6 +154,11 @@ class DBHelper {
     return (`img/${restaurant.photograph}`);
   }
 
+  static imageSrcSet(restaurant) {
+    return (`img/${restaurant.id}-large.jpg 800w,
+            img/${restaurant.id}-small.jpg 400w`);
+  }
+
   /**
    * Map marker for a restaurant.
    * Documentation: https: //leafletjs.com/reference-1.3.0.html#marker
