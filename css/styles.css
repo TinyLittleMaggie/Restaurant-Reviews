@@ -238,12 +238,12 @@ nav h1 a {
 
 @media screen and (min-width: 800px) {
   #restaurants-list li {
-    width: 40%
+    width: 40%;
   }
 }
 
 @media screen and (min-width: 1000px) {
   #restaurants-list li {
-    width: 25%
+    width: 25%;
   }
 }
