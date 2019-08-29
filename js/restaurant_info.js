@@ -31,6 +31,8 @@ initMap = () => {
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+      // Remove 'map' from the tab sequence
+      document.getElementById('map').tabIndex = -1;
     }
   });
 }
@@ -63,19 +65,23 @@ fetchRestaurantFromURL = (callback) => {
 /**
  * Create restaurant HTML and add it to the webpage
  */
+
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
+  name.tabIndex = 0;
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
+  cuisine.tabIndex = 0;
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -135,6 +141,7 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.classList.add('reviewer-name');
+  name.tabIndex = 0;
   li.appendChild(name);
 
   const date = document.createElement('p');
