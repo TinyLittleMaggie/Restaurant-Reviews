@@ -5,6 +5,6 @@ self.addEventListener('install', function() {
 self.addEventListener('fetch', function(event) {
   // console.log(event.request.url);
   event.respondWith(
-    new Response("Hello! Your page has been hijacked!")
+    fetch('/img/1-large.jpg')
   );
 });
