@@ -1,21 +1,7 @@
 const myCacheName = 'v1';
-const cacheAssets = [
-  'index.html',
-  '/js/main.js',
-  '/js/dbhelper.js'
-];
 
 self.addEventListener('install', event => {
   console.log('Service worker installed!');
-  event.waitUntil(
-    caches
-      .open(myCacheName)
-      .then(cache => {
-        console.log('Service worker caching files');
-        cache.addAll(cacheAssets);
-      })
-      .then(() => self.skipWaiting())
-  );
 });
 
 self.addEventListener('activate', event => {
@@ -38,11 +24,26 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   console.log('Service worker fetching cache!');
   event.respondWith(
-    // If the internet connection is good,
-    // respond with network requests as usual
+    // With any fetch event, make a copy
+    // of the response from the server and save it in the cache
     fetch(event.request)
-      // If the network fails,
-      // match the request with cached response
-      .catch(() => caches.match(event.request))
+      .then(response => {
+        const resClone = response.clone();
+        caches
+          .open(myCacheName)
+          .then(cache => {
+            cache.put(event.request, resClone);
+          });
+        return response;
+      }).catch(err => {
+        caches
+          .match(event.request)
+          .then(response => {
+            return response;
+          })
+      })
   );
 });
+
+
+// Service worker tutorial link: https://www.youtube.com/watch?v=ksXwaWHCW6k
